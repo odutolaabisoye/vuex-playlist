@@ -94,6 +94,28 @@ export default {
 }
 </script>
 
+# You can also use a spread operator
+
+<script>
+import {mapActions} from 'vuex';
+import {mapGetters} from 'vuex';
+export default {
+    computed: {
+        products(){
+            return this.$store.state.products;
+        },
+        ...mapGetters([
+            'saleProducts'
+        ])
+    },
+    methods: {
+        ...mapActions([
+            'reducePrice'
+        ])
+    }
+}
+</script>
+
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
